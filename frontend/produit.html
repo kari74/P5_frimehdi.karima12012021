@@ -14,9 +14,14 @@
 </head>
 <body>
     <header>
-        <a href="index.html"> <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes"></a>
+        <a href="index.html">
+        <button class="retour" href="../frontend/index.html">
+            <i class="fa fa-arrow-left" aria-hidden="true">Retour page acceuil</i>
+        </button>
+            <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">
+        </a>
         <div class="boutons">
-        <button class="panier" onclick='location.href="panier.html"' data-target="panier">Panier ( <span class="totalQté"></span> )<i class="fas fa-shopping-cart"></i></button>
+        <button class="panier" onclick='location.href="../frontend/panier.html"' data-target="panier">Panier ( <span class="totalQté"></span> )<i class="fas fa-shopping-cart"></i></button>
         </div>
         <h1>Bienvenue sur ORINOCO le site de vente en ligne</h1><hr>
     </header>
@@ -27,9 +32,7 @@
         </div>
         </section>
         <main>
-            <!--ajoute integrer les articles-->
-            <div id="ourson"></div>
-
+            <div id="produit"></div>
         </main>
         <footer>
             <section class="footer_detail">
@@ -58,6 +61,6 @@
                  </a>
             </section>
         </footer>
-        <script src="./js/teddies.js"></script>
+        <script src="./js/produit.js"></script>
 </body>
 </html>

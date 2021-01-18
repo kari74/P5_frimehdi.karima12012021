@@ -1,106 +1,144 @@
 body{
     margin: 0px;
     height: auto;
-    font-family: 'Coming Soon', cursive;
+    font-family: 'Roboto', cursive;
     font-weight: bold; 
 }
 
 header{
     background-color: #f3e9f1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-self: center;
+}
+.retour{
+    width: 15%;
+    background-color: #dbbfdb;
 }
 main{
     text-align: center;
-    background-image: url(images/line.png);
     width: 100%;
 }
 header p{
-    font-size: 1.5em;
+    font-size: 16px;
     text-align: center;
+
 }
 #logo{
-    margin-left: 1%;
-    margin-top: 1%;
+    margin-left: 15px;
+    margin-top: 15px;
 }
 
-.container-fluid{
-    font-family: 'Coming Soon', cursive;
+h1{
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+a{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    
+}
+
+section{
+    font-family: 'Roboto', cursive;
     color: rgb(238, 238, 240);
-    font-size: 1.5em;
+    font-size: 16px;
     font-weight: bolder;
-    padding: 2%; 
+    padding: 20px; 
     border-style: solid;   
     border-width: 2px;   
     border-radius: 5px;
     border-color:black;
-    margin: 1%;
-    background-image: url(images/fond.jpg);
+    margin: 15px;
+    border: none;
+ 
 }
-.container-fluid h2{
-    font-size: 2em;
+
+h2{
+    font-size: 30px;
     color: purple;
     font-weight: 600;
+    display: flex;
+    justify-content: center;
 }
-.container-fluid #intro{
-    color: rgb(238, 238, 240);
-    text-shadow: -2px 0 rgb(136, 6, 243), 0 2px rgb(136, 6, 243),
-    2px 0 rgb(136, 6, 243), 0 -2px rgb(136, 6, 243)
+p,#titreintro {
+    color: rgb(166, 166, 236);
+    font-size:18px;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    width: auto;
 }
 .panier{
     color: black;
-    font-family: 'Coming Soon', cursive;
-    font-size: 1.2em;
+    font-family: 'Roboto', cursive;
+    font-size: 15px;
     font-weight: bold;
     background-color: #ffffff;   
     border-style: solid;   
     border-width: 1px;   
     border-radius: 5px;
-    border-color:blueviolet;
+    border-color:rgb(255, 167, 181);
 }
 .panier:hover{
     color: black;
-    background-color: blueviolet;
+    background-color: rgb(233, 186, 194);
 }
 
 .boutons{
-   float: right;
-   margin-top: 3%;
+    float: right;
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
 }
 .fa-lock{
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: bold;
     border-style: solid;
     border-width: 2px;
     border-radius: 3px;
     border-color: #4A148C;
-    padding: 1%;
+    padding: 10px;
+    
 }
 .fa-truck{
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: bold;
     border-style: solid;
     border-width: 2px;
     border-radius: 3px;
     border-color: #4A148C;
-    padding: 1%;
+    padding: 10px;
 }
 .fa-reply{
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: bold;
     border-style: solid;
     border-width: 2px;
     border-radius: 3px;
     border-color: #4A148C;
-    padding: 1%;
+    padding: 10px;
 }
 .fa-lock:hover, .fa-truck:hover, .fa-reply:hover{
     border-color: rgb(250, 135, 4);
 
 }
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 footer{
-    padding-top: 1%;
-    padding-bottom: 1%;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 15px;
     font-weight: bold;
     margin: auto;
     height: auto;
@@ -111,32 +149,48 @@ li{
     list-style: none;
 }
 .fa-facebook{
-    margin: 2%;
-    font-size: 2em;
+    margin: 20px;
+    font-size: 20px;
     color: rgb(44, 44, 194);
 }
 .fa-google-plus{
-    font-size: 2em;
+    font-size: 20px;
     color: rgb(236, 26, 26);
 }
 .fa-facebook:hover, .fa-google-plus:hover{
-    font-size: 2.5em;
+    font-size: 20px;
 }
 
+.resauxsociaux a{
+    height: 50px;
+}
+
+.resauxsociaux p{
+    width: 110px;
+}
 /* Liste des articles */
 
+#ourson{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
 article{
     border-style: solid;
     border-radius: 3px;
-    border-color: rgb(89, 84, 94);
+    border-color: rgb(180, 158, 202);
     margin: auto;
-    margin-bottom: 1%;
-    padding: 1%;
+    margin-bottom: 10px;
+    padding: 10px   ;
     text-align: center;
+    width: 35%;
+    background-color: rgb(241, 215, 220, 0.55);
+    height: 250px;
 }
 #lien{
     padding:6px 6px 6px ;
-	font:bold 1.2em 'Coming Soon', cursive;
+	font:bold 16px 'roboto', cursive;
 	background:#f5f5f5;
 	color:rgb(44, 41, 41);
 	border-radius:3px;
@@ -145,8 +199,9 @@ article{
 
 }
 #lien:hover{
-    background-color: rgb(176, 174, 179);
+    background-color: rgb(203, 185, 231);
     transition-duration: 0.1s;
+    text-decoration: none;
 }
 img{
     color:rgb(44, 41, 41);
@@ -155,74 +210,41 @@ img{
 	border:2px solid rgb(70, 64, 64);
 	box-shadow:1px 1px 3px rgb(75, 71, 71);
 }
-#basket, #prixTotal{
-    font-size: 1.3em;
-    font-family: 'Coming Soon', cursive;
-    font-weight: bold; 
-    padding: 5%;
-}
 
 p, label{
-    font-size: 1.3em;
-    font-family: 'Coming Soon', cursive;
+    font-size: 16px;
+    font-family: 'Roboto', cursive;
     font-weight: bold; 
+    display: inline-block;
+    margin-bottom: 8px;
+    width: 260px;
 }
 
-/* bouton de la fiche du teddy*/
 
-#liste, #voirPanier, #stockage{
-    color: black;
-    font-family: 'Coming Soon', cursive;
-    font-size: 1em;
-    font-weight: bold;
-    background-color: #ffffff;   
-    border-style: solid;   
-    border-radius: 3px;
-    border-width: 1px;   
-    border-color:rgb(71, 70, 71);
-    margin: 2%;
-}
-#liste:hover, #voirPanier:hover, #stockage:hover{
-    background-color: rgb(176, 174, 179);
-    transition-duration: 0.1s;
-}
 #valider{
     color: black;
-    font-family: 'Coming Soon', cursive;
-    font-size: 1.2em;
+    font-family: 'Roboto', cursive;
+    font-size: 14px;
     font-weight: bold;
     background-color: #ffffff;   
     border-style: solid;   
     border-radius: 3px;
     border-width: 2px;   
-    border-color:rgb(15, 182, 51);
-    margin: 2%;
-    padding: 1%;
+    border-color:rgb(245, 196, 228);
+    margin: 20px;
+    padding: 10px;
 }
 #valider:hover{
-    background-color: rgb(7, 247, 87);
+    background-color: rgb(245, 196, 228);
     transition-duration: 0.1s;
+    text-decoration: none;
 }
-#supprime{
-    color: black;
-    font-family: 'Coming Soon', cursive;
-    font-size: 0.7em;
-    background-color: #ffffff;   
-    border-style: solid;   
-    border-radius: 5px;
-    border-width: 1px;   
-    border-color:rgb(177, 16, 16);
-    margin: auto;
-}
-#supprime:hover{
-    background-color: rgb(235, 32, 18);
-    transition-duration: 0.1s;
-}
+
 #teddy{
-    font-size: 1.5em;
+    font-size: 15px;
     color: black;
     font-weight: bold;
-    font-family: 'Coming Soon', cursive;
+    font-family: 'Roboto', cursive;
     margin: auto;
 }
 
@@ -231,16 +253,18 @@ p, label{
 .form-group{
     width: 20%;
     margin:auto;
+    box-sizing: border-box;
 }
 #produit{
     margin: auto;
     width: 50%;
 }
-article h3, p{
-    font-size: 1em;
+article h4, p{
+    font-size: 16px;
     font-weight: bold;
     color: rgb(5, 5, 5);
-    margin: 5%;
+    margin: 10px;
+    cursor: pointer;
 }
 #price::after{
 content: " €";
@@ -250,39 +274,48 @@ content: " €";
     border-radius: 3px;
     border-color: rgb(89, 84, 94);
     margin: auto;
-    margin-bottom: 1%;
-    padding: 1%;
+    margin-bottom: 10px;
+    padding: 10px;
     text-align: center;
-    width: 40%;
+    width: 50%;
 }
 
+#formulaire{
+    display: block;
+    box-sizing: border-box;
+}
 
+.form-control{
+    display: block;
+    width: 100%;
+    height: calc(24px + 12px + 2px);
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    
+}
+button, input {
+    overflow: visible;
+}
 /* Confirmation de commande */
 
-#recap{
-    font-size: 1.2em;
-    font-weight: bold;
-}
 
 .fa-check{
     color : green;
-    font-size: 1.5em;
+    font-size: 15px;
     font-weight: bold;
+    margin: 15px;
 }
 .fa-paw{
     color : rgb(75, 29, 29);
-    font-size: 1.5em;
+    font-size: 15px;
     font-weight: bold;
 }
-.abientot{
-    color : rgb(75, 29, 29);
-    font-family: 'Coming Soon', cursive;
-    font-size: 1.5em;
-    font-weight: bold;
-}
-.gras{
-    color : green;
-    font-family: 'Coming Soon', cursive;
-    font-size: 1.2em;
-    font-weight: bold;
-}
+

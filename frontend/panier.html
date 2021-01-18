@@ -14,23 +14,56 @@
 </head>
 <body>
     <header>
-        <a href="index.html"> <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes"></a>
+        <a href="produit.html">
+            <button class="retour" href="../frontend/produit.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                Retour page produit
+            </button>
+            <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">   
+        </a>
         <div class="boutons">
         <button class="panier" onclick='location.href="panier.html"' data-target="panier">Panier ( <span class="totalQté"></span> )<i class="fas fa-shopping-cart"></i></button>
         </div>
-        <h1>Bienvenue sur ORINOCO le site de vente en ligne</h1><hr>
+        <p>Panier</p><hr>
     </header>
-    <section>
-        <div class=" text-center">
-            <h2>Ours en peluche de collections</h2>
-            <p id="titreintro">Nos ours sont confectionnés à la main avec le plus grand soin</p>
-        </div>
-        </section>
-        <main>
-            <!--ajoute integrer les articles-->
-            <div id="ourson"></div>
-
-        </main>
+	<form id="formulaire">
+		<div class= "row">
+            <div class="form-group">
+                <label for="firstname">
+                    Prénom :
+                </label>
+                <input type="text" name="firstName" class="form-control" id="firstname" placeholder="Votre prénom..." required><span id='oublisPrenom'></span><br>
+            </div>
+			<div class= "form-group">
+				<label for = "nom" >
+                    Nom
+                </label>
+				<input id= "name" class= "form-control" requis/>
+            </div>
+            <div class="form-group">
+                <label for="address">
+                    Adresse :
+                </label>
+                <input type="text" name="address" class="form-control" id="address" placeholder="20, rue du bonheur" required><span id='oublisAdress'></span><br>
+            </div>
+            <div class="form-group">
+                <label for="city">
+                    Ville :
+                </label>
+               <input type="text" name="city" class="form-control" id="city" placeholder="Votre ville..." required><span id='oublisVille'></span><br>
+            </div>   
+			<div class= "form-group">
+				<label for= "email">
+					Adresse email
+				<input id= "email" class= "form-control " type= "email" requis/>
+                </label>
+            </div>
+            <div class="form-group">
+                <a href="commande.html">
+            <button type="button" onclick="achat()" id="valider">Valider le panier</button>
+            </a>
+            </div>
+        </div>   
+    </from>
         <footer>
             <section class="footer_detail">
                 <ul>
@@ -58,6 +91,7 @@
                  </a>
             </section>
         </footer>
-        <script src="./js/teddies.js"></script>
+        <script src="./js/panier.js"></script>
 </body>
 </html>
+
