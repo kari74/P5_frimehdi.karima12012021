@@ -14,17 +14,18 @@
 </head>
 <body>
     <header>
+      
         <a href="produit.html">
-            <button class="retour" href="../frontend/produit.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>
-                Retour page produit
-            </button>
             <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">   
         </a>
         <div class="boutons">
         <button class="panier" onclick='location.href="panier.html"' data-target="panier">Panier ( <span class="totalQté"></span> )<i class="fas fa-shopping-cart"></i></button>
         </div>
-        <p>Panier</p><hr>
     </header>
+    <main id="app">
+       <!-- <div id="basket"></div>
+        <div id="totalpanier"></div>-->
+    </main>
 	<form id="formulaire">
 		<div class= "row">
             <div class="form-group">
@@ -64,6 +65,15 @@
             </div>
         </div>   
     </from>
+ <!--<form id="formulaire">
+        <input type="text" name="nom" placeholder="nom" id="nom"><br>
+        <input type="text" name="prenom" placeholder="prenom" id="prenom"><br>
+        <input type="text" name="address" placeholder="Adresse" id="adresse"><br>
+        <input type="text" name="city" placeholder="ville" id="ville"><br>
+        <input type="email" name="email-confirmation" placeholder="email" id="email-confirmer"><br>
+        <input type="submit" value="valider">
+    </form>
+    <p id="erreur"></p>-->
         <footer>
             <section class="footer_detail">
                 <ul>
@@ -91,6 +101,7 @@
                  </a>
             </section>
         </footer>
+        <script src="./js/utils.js"></script>
         <script src="./js/panier.js"></script>
 </body>
 </html>

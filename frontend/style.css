@@ -19,6 +19,8 @@ header{
 main{
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 header p{
     font-size: 16px;
@@ -40,6 +42,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: baseline;
+    margin: 5px;
     
 }
 
@@ -141,7 +144,7 @@ footer{
     font-size: 15px;
     font-weight: bold;
     margin: auto;
-    height: auto;
+    height: 430px;
     background-color: #f3e9f1;
 }
 
@@ -170,13 +173,7 @@ li{
 }
 /* Liste des articles */
 
-#ourson{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-article{
+#articlelistes{
     border-style: solid;
     border-radius: 3px;
     border-color: rgb(180, 158, 202);
@@ -184,9 +181,35 @@ article{
     margin-bottom: 10px;
     padding: 10px   ;
     text-align: center;
-    width: 45%;
+    width: 35%;
     background-color: rgb(241, 215, 220, 0.55);
-    height: 290px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#articleliste{
+    border-radius: 3px;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px   ;
+    text-align: center;
+    width: 95%;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select{
+    width: 100%;
+    font-size: 16px;
+    height: 30px;
+    margin: 5px;
 }
 #lien{
     padding:6px 6px 6px ;
@@ -204,11 +227,17 @@ article{
     text-decoration: none;
 }
 img{
-    color:rgb(44, 41, 41);
+    color: rgb(247, 174, 174);
     width: 40%;
 	border-radius:3px;
-	border:2px solid rgb(70, 64, 64);
+	border:2px solid rgb(247, 174, 174);
 	box-shadow:1px 1px 3px rgb(75, 71, 71);
+   
+}
+
+
+#erreur{
+    color: red;
 }
 
 p, label{
@@ -259,8 +288,9 @@ p, label{
     margin: auto;
     width: 50%;
 }
-article h4, p{
-    font-size: 16px;
+
+article h3, p{
+    font-size: 12px;
     font-weight: bold;
     color: rgb(5, 5, 5);
     margin: 10px;
@@ -319,3 +349,55 @@ button, input {
     font-weight: bold;
 }
 
+.ConfirmationCommande{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+@media(max-width: 760px){
+    
+    .retour{
+        width: 35%;
+    }
+    h1{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
+    }
+
+    .text-center{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    main{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+    }
+
+
+     #articleliste img{
+        width: 80%;
+        height: 285px;
+    }
+    
+    #articlelistes{
+        width: 85%;
+        height: 270px;
+    }
+
+    footer{
+        height: 450px;
+    }
+
+    footer a{
+        margin: 5px;
+    }
+}
