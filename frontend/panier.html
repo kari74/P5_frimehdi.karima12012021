@@ -15,7 +15,7 @@
 <body>
     <header>
       
-        <a href="produit.html">
+        <a href="index.html">
             <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">   
         </a>
         <div class="boutons">
@@ -23,48 +23,58 @@
         </div>
     </header>
     <main id="app">
+        <form id="formulaire">
+        <input type="text" name="nom" placeholder="nom" id="nom"><br>
+        <input type="text" name="prenom" placeholder="prenom" id="prenom"><br>
+        <input type="text" name="address" placeholder="Adresse" id="adresse"><br>
+        <input type="text" name="city" placeholder="ville" id="ville"><br>
+        <input type="email" name="email-confirmation" placeholder="email" id="email-confirmer"><br>
+        <input type="submit" value="valider">
+    </form>
+    
+        <!--<form id="formulaire">
+            <div class= "row">
+                <div class="form-group">
+                    <label for="firstname">
+                        Prénom :
+                    </label>
+                    <input type="text" name="firstName" class="form-control" id="firstname" placeholder="Votre prénom..." required><span id='oublisPrenom'></span><br>
+                </div>
+                <div class= "form-group">
+                    <label for = "nom" >
+                        Nom
+                    </label>
+                    <input id= "name" class= "form-control" requis/>
+                </div>
+                <div class="form-group">
+                    <label for="address">
+                        Adresse :
+                    </label>
+                    <input type="text" name="address" class="form-control" id="address" placeholder="20, rue du bonheur" required><span id='oublisAdress'></span><br>
+                </div>
+                <div class="form-group">
+                    <label for="city">
+                        Ville :
+                    </label>
+                   <input type="text" name="city" class="form-control" id="city" placeholder="Votre ville..." required><span id='oublisVille'></span><br>
+                </div>   
+                <div class= "form-group">
+                    <label for= "email">
+                        Adresse email
+                    <input id= "email" class= "form-control " type= "email" requis/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <a href="commande.html">
+                <button type="button" onclick="achat()" id="valider">Valider le panier</button>
+                </a>
+                </div>
+            </div>   
+        </form>-->
        <!-- <div id="basket"></div>
         <div id="totalpanier"></div>-->
     </main>
-	<form id="formulaire">
-		<div class= "row">
-            <div class="form-group">
-                <label for="firstname">
-                    Prénom :
-                </label>
-                <input type="text" name="firstName" class="form-control" id="firstname" placeholder="Votre prénom..." required><span id='oublisPrenom'></span><br>
-            </div>
-			<div class= "form-group">
-				<label for = "nom" >
-                    Nom
-                </label>
-				<input id= "name" class= "form-control" requis/>
-            </div>
-            <div class="form-group">
-                <label for="address">
-                    Adresse :
-                </label>
-                <input type="text" name="address" class="form-control" id="address" placeholder="20, rue du bonheur" required><span id='oublisAdress'></span><br>
-            </div>
-            <div class="form-group">
-                <label for="city">
-                    Ville :
-                </label>
-               <input type="text" name="city" class="form-control" id="city" placeholder="Votre ville..." required><span id='oublisVille'></span><br>
-            </div>   
-			<div class= "form-group">
-				<label for= "email">
-					Adresse email
-				<input id= "email" class= "form-control " type= "email" requis/>
-                </label>
-            </div>
-            <div class="form-group">
-                <a href="commande.html">
-            <button type="button" onclick="achat()" id="valider">Valider le panier</button>
-            </a>
-            </div>
-        </div>   
-    </from>
+	
  <!--<form id="formulaire">
         <input type="text" name="nom" placeholder="nom" id="nom"><br>
         <input type="text" name="prenom" placeholder="prenom" id="prenom"><br>

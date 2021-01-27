@@ -1,50 +1,33 @@
-
-//appel ajax
-
-ajax('http://localhost:3000/api/teddies/' + getPanierId())
-  .then(Panier =>
-     {
-      displayPanier(Panier);
-    })
-
-
-  function displayPanier(teddy)
-  {
-   
-  
-  document.getElementById('app').innerHTML = renderPanier(teddy)
-  }
-
-
-  function getPanierId()
+if(sessionStorage.getItem('products'))
 {
-const urlParams = new URLSearchParams(window.location.search);
-return urlParams.get('id')
-};
+let products = JSON.parse(sessionStorage.getItem('products'));
+/*let html = '';*/
+
+products.forEach(id => 
+{
+  ajax('https://localhost:3000/api/teddies/'+ id)  
+    .then(teddy =>
+      {
+      document.getElementById('app').innerHTML  += render (teddy,'single')
+      })
+});
+
+} else{
+  document.getElementById('app').innerText ='Aucun produit dans votre panier, selectionner vos articles dans le catalogue'
+}
+
+
+document.getElementById('nom').addEventListener('keydown',function(e)
+{
+  if(e.target.value.length<3)
+  {
+    formIsValid = false;
+  } else{
+    formIsValid= true;
+  }
+})
 
 /*
-//traitement générique du formlaire
-document.forms("formulaire").addEventListener("submit", function(e){
-  
-  var erreur;
-  var inputs = this;
-
-  for(var i =0; i< inputs; i++){
-    console.log(inputs[i]);
-    if (!inputs[i].value) {
-      erreur ="veuillez renseigner tous les champs";
-    }
-  }
-
-  if(erreur) {
-    e.preventDefault();
-   document.getElementById("erreur").innerHTML = erreur;
-   return false;
-  } else{
-    alert('valider!');
-  }
-
-});*/
 
 function Panier(){
   let nombreProduit = localStorage.getItem('qté'); 
@@ -107,4 +90,4 @@ function productId(products) {
  
   };
   
-  
+  */

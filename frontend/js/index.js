@@ -6,7 +6,7 @@ ajax('http://localhost:3000/api/teddies/')//appel ajax
   
   //affichage produit
   displayProducts(products);
- 
+
 })
 
 function displayProducts(products){
@@ -14,19 +14,9 @@ function displayProducts(products){
 
   products.forEach(teddy =>
     {
-      html +=render(teddy)
+      html +=render(teddy, "index")
     });
 
 document.getElementById('app').innerHTML = html
 }
 
-function Panier(){
-  let nombreProduit = localStorage.getItem('qté'); 
-  
-  if(nombreProduit){
-  document.querySelector ('.totalQté').textContent = nombreProduit;
-  }else{
-      document.querySelector ('.totalQté').textContent = 0 ;
-  }
-}
-Panier();

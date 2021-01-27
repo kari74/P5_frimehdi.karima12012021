@@ -5,15 +5,15 @@ ajax('http://localhost:3000/api/teddies/' +getProductId())
   .then(product =>
   {
     displayProduct(product);
+    listenForCartAddition();  
   })
 
 
 function displayProduct(teddy)
 {
 
-document.getElementById('app').innerHTML = renderProduit(teddy)
+document.getElementById('app').innerHTML = render(teddy, "single")
 }
-
 
 function getProductId()
 {
@@ -21,14 +21,22 @@ const urlParams = new URLSearchParams(window.location.search);
 return urlParams.get('id')
 }
 
-function Panier(){
-  let nombreProduit = localStorage.getItem('qté'); 
-  
-  if(nombreProduit){
-  document.querySelector ('.totalQté').textContent = nombreProduit;
-  }else{
-      document.querySelector ('.totalQté').textContent = 0 ;
-  }
+function listenForCartAddition()
+{
+  document.getElementById('addToCartButton').addEventListener('click',function()
+    {
+      let products;
+
+      if (sessionStorage.getItem('products'))
+      {
+        products = JSON.parse(sessionStorage.getItem('products'));
+      } else {
+        products = [];
+      }
+
+      products.push(getProductId());
+      sessionStorage.setItem('products', JSON.stringify(products));
+    });
 }
 
-Panier(); 
+ 
