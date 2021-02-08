@@ -78,7 +78,6 @@ function ajax(url)
             <p>${teddy.description}</p>
             <div>${teddy.price/100} €</div> 
             <div>${teddy.totalQté}Quantité:</div>
-            <div>${teddy.totalPanier} total de votre panier</div>
             <a href="produit.html?id=${teddy._id}"> Retour a la liste </a>
             </article> 
                 `;

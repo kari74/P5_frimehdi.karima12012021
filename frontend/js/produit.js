@@ -1,7 +1,7 @@
 
 //appel ajax
 
-ajax('http://localhost:3000/api/teddies/' +getProductId())
+ajax('http://localhost:3000/api/teddies/' + getProductId())
   .then(product =>
   {
     displayProduct(product);
@@ -12,7 +12,7 @@ ajax('http://localhost:3000/api/teddies/' +getProductId())
 function displayProduct(teddy)
 {
 
-document.getElementById('app').innerHTML = render(teddy, "single")
+document.getElementById('app').innerHTML += render(teddy, "single")
 }
 
 function getProductId()
