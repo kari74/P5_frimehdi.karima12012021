@@ -1,5 +1,5 @@
 //connexion API
-function ajax(url)
+function ajax(url, methode ='GET', payload ={})
 {
     return new Promise(function (resolve,reject){
     var xhr = new XMLHttpRequest();
@@ -22,14 +22,14 @@ function ajax(url)
         };
       };
     };
-    xhr.open('GET', url, true);
-    xhr.send();
+    xhr.open(methode, url, true);
+    xhr.send(payload);
     });
 };
 
 
 
-  // introduction html grace a ``
+  // introduction html grace a `` affichage dans les differentes pages
 
   function render(teddy, type)
   {
@@ -72,7 +72,7 @@ function ajax(url)
     if (type =="panier")
     {
       return `
-        <article id ="articleliste">
+        <article id ="tr">
             <h3>${teddy.name}</h3>
             <img src="${teddy.imageUrl}"/>
             <p>${teddy.description}</p>
@@ -83,4 +83,30 @@ function ajax(url)
                 `;
     }
 
+}
+
+function hasProductsInCart()
+{
+  return !! sessionStorage.getItem('products')
+}
+
+function get(item)//recuperation des elements depuis le local storage
+{
+  return JSON.parse(localStorage.getItem(item));
+}
+
+
+function store(item, value)//stockage des elements dans le local storage
+{
+  localStorage.setItem('item', JSON.stringify(value));
+}
+
+function show(id)
+{
+  document.getElementById(id).style.display ='block';
+}
+
+function hide(id)
+{
+  document.getElementById(id).style.display ='none';
 }

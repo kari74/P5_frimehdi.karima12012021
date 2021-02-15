@@ -23,16 +23,17 @@
         </div>
     </header>
     <main id="app">
-        <div class="form-control">
         <form id="formulaire">
-            <input type="text" name="nom" placeholder="nom" id="nom"><br>
-            <input type="text" name="prenom" placeholder="prenom" id="prenom"><br>
-            <input type="text" name="address" placeholder="Adresse" id="adresse"><br>
-            <input type="text" name="city" placeholder="ville" id="ville"><br>
-            <input type="email" name="email-confirmation" placeholder="email" id="email-confirmer"><br>
-            <input type="submit" value="valider">
+            <input type="text" name="nom" placeholder="nom" id="lastName" value="Doe"><br>
+            <input type="text" name="prenom" placeholder="prenom" id="fistName" value="John"><br>
+            <input type="text" name="address" placeholder="Adresse" id="address" value="6 rue du bonheur"><br>
+            <input type="text" name="city" placeholder="ville" id="city" value="La joie"><br>
+            <input type="email" name="email" placeholder="email" id="email" value="doe.john@example.com"><br>
+            <button type="button" id="submitButton">Valider</button>
         </form>
-        </div>
+        <h1 id=" cartEmpty">
+            Aucun produit dans votre panier, selectionner vos articles dans le catalogue
+        </h1>
     </main>
     <footer>
         <section class="footer_detail">

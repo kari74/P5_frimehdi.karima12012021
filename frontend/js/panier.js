@@ -1,85 +1,59 @@
-if(sessionStorage.getItem('products'))
+if(hasProductsInCart())
 {
-let products = JSON.parse(sessionStorage.getItem('products'));
-
-products.forEach(id => 
-{
-  console.log(id)
-  ajax('http://localhost:3000/api/teddies/' + id)  
-    .then(teddy =>
-      {
-      document.getElementById('app').innerHTML  += render (teddy,"panier")
-      })
-});
+  hide('cartEmpty');
 
 
-} else{
-  document.getElementById('app').innerText ='Aucun produit dans votre panier, selectionner vos articles dans le catalogue'
+  ajax('http://localhost:3000/api/teddies/').then(teddies =>
+  {
+    get('products').forEach(teddyId =>{
+        let teddy = teddies.find(teddy =>teddy._id ===teddyId);
+        displayTeddy(teddy)
+     })
+
+   listenForCartSubmission()
+
+    })
+
 }
 
 
-document.getElementById('nom').addEventListener('keydown',function(e)
+function listenForCartSubmission()
 {
-  if(e.target.value.length<3)
+  let btn = document.getElementById('submitButton');
+  btn.addEventListener('click', function()
   {
-    formIsValid = false;
-  } else{
-    formIsValid= true;
+    //e.preventDefault();
+    let fistName = document.getElementById('fistName').value;
+    let lastName = document.getElementById('lastName').value;
+    let address = document.getElementById('address').value;
+    let city = document.getElementById('city').value;
+    let email = document.getElementById('email').value;
+
+
+    console.log(fistName, lastName, address, city, email);
+
+    let payload = {
+      contact: {
+        fistName: fistName,
+        lastName: lastName,
+        address: address,
+        city: city,
+        email: email
+    },
+    products: get('products')
   }
+
+  ajax('http://localhost:3000/api/teddies/order', 'POST', JSON.stringify(payload)).then(function(res) {
+      console.log(res)
+
+    })
 })
-
-document.getElementById('prenom').addEventListener('keydown',function(e)
-{
-  if(e.target.value.length<3)
-  {
-    formIsValid = false;
-  } else{
-    formIsValid= true;
-  }
-})
-
-document.getElementById('adress').addEventListener('keydown',function(e)
-{
-  if(e.target.value.length<3)
-  {
-    formIsValid = false;
-  } else{
-    formIsValid= true;
-  }
-})
-
-document.getElementById('city').addEventListener('keydown',function(e)
-{
-  if(e.target.value.length<3)
-  {
-    formIsValid = false;
-  } else{
-    formIsValid= true;
-  }
-})
-
-document.getElementById('email-confimation').addEventListener('keydown',function(e)
-{
-  if(e.target.value.length<3)
-  {
-    formIsValid = false;
-  } else{
-    formIsValid= true;
-  }
-})
-
-document.getElementById('valider').addEventListener('submit', function(e){
-
-e.preventDefault(); 
-if(verifInputs()){
-  alert('verifier le formoulaire');
-  return;
 }
 
 
-function getProductId()
+function displayTeddy(teddy)
 {
-const urlParams = new URLSearchParams(window.location.search);
-return urlParams.get('id')
+  document.getElementById('app').innerHTML  += render (teddy,"panier")
+
 }
-})
+

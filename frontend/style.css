@@ -190,6 +190,14 @@ li{
     align-items: center;
 }
 
+#tr{
+    border-style: solid;
+    border-radius: 3px;
+    border-color: rgb(180, 158, 202);
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
 
 #articleliste{
     border-radius: 3px;
