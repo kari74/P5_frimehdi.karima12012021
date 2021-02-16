@@ -27,19 +27,18 @@ function ajax(url, methode ='GET', payload ={})
     });
 };
 
-  function displayTotalInHeader()
+  function displayTotalInHeader()//affiche qty dans le header
   {
     document.getElementById('totalQty').innerHTML = countProductsInCart();
-
   }
-  function countProductsInCart()
+  function countProductsInCart()//comptage du nbre de produit mis dans le panier
   {
     if(!hasProductsInCart())
     {
       return 0
     }
 
-    let total = 0;
+    let total = 0;//valeur par defaut si panier vide
 
     get('Products').forEach((product) =>
     {
