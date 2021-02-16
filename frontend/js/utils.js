@@ -27,7 +27,27 @@ function ajax(url, methode ='GET', payload ={})
     });
 };
 
+  function displayTotalInHeader()
+  {
+    document.getElementById('totalQty').innerHTML = countProductsInCart();
 
+  }
+  function countProductsInCart()
+  {
+    if(!hasProductsInCart())
+    {
+      return 0
+    }
+
+    let total = 0;
+
+    get('Products').forEach((product) =>
+    {
+      total += product.qty
+    })
+
+    return total;
+  }
 
   // introduction html grace a `` affichage dans les differentes pages
 
@@ -77,8 +97,10 @@ function ajax(url, methode ='GET', payload ={})
             <img src="${teddy.imageUrl}"/>
             <p>${teddy.description}</p>
             <div>${teddy.price/100} €</div> 
-            <div>${teddy.totalQté}Quantité:</div>
+            <div>${teddy.qty}Quantité:</div>
             <a href="produit.html?id=${teddy._id}"> Retour a la liste </a>
+            <span id ="addButton-${teddy._id}" + </span>
+            <span id ="removeButton-${teddy._id}" - </span>
             </article> 
                 `;
     }
@@ -87,7 +109,7 @@ function ajax(url, methode ='GET', payload ={})
 
 function hasProductsInCart()
 {
-  return !! sessionStorage.getItem('products')
+  return !! localStorage.getItem('products')
 }
 
 function get(item)//recuperation des elements depuis le local storage
@@ -98,7 +120,7 @@ function get(item)//recuperation des elements depuis le local storage
 
 function store(item, value)//stockage des elements dans le local storage
 {
-  localStorage.setItem('item', JSON.stringify(value));
+  localStorage.setItem(item, JSON.stringify(value));
 }
 
 function show(id)

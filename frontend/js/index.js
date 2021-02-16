@@ -1,4 +1,4 @@
-
+displayTotalInHeader();
 //appel ajax
 ajax('http://localhost:3000/api/teddies/')//appel ajax
 .then(products =>//response appel
