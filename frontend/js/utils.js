@@ -29,7 +29,7 @@ function ajax(url, methode ='GET', payload ={})
 
   function displayTotalInHeader()//affiche qty dans le header
   {
-    document.getElementById('totalQty').innerHTML = countProductsInCart();
+    document.getElementById('totalQty').innerHTML = [] ,countProductsInCart();
   }
   function countProductsInCart()//comptage du nbre de produit mis dans le panier
   {
@@ -93,13 +93,13 @@ function ajax(url, methode ='GET', payload ={})
       return `
         <article id ="tr">
             <h3>${teddy.name}</h3>
-            <img src="${teddy.imageUrl}"/>
+            <img src="${teddy.imageUrl}" style="width: 20%"/>
             <p>${teddy.description}</p>
             <div>${teddy.price/100} €</div> 
             <div>${teddy.qty}Quantité:</div>
+            <span id ="addButton-${teddy._id}" style ="padding:10px;font-size:15px; color:white; background-color: red; border:1px solid white; margin-right:15px"> + </span>
+            <span id ="removeButton-${teddy._id}"style ="padding:10px;font-size:15px; color:white; background-color: green; border:1px solid white;"> - </span>
             <a href="produit.html?id=${teddy._id}"> Retour a la liste </a>
-            <span id ="addButton-${teddy._id}" + </span>
-            <span id ="removeButton-${teddy._id}" - </span>
             </article> 
                 `;
     }

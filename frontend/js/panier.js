@@ -1,4 +1,5 @@
 
+
 if(hasProductsInCart())
 {
   hide('cartEmpty');
@@ -19,7 +20,7 @@ if(hasProductsInCart())
   })
 }
 
-function listenForAddition(id){
+function listenForAddition(id) {
   document.getElementById(`addButton-${id}`).addEventListener('click' , function()
   {
       let products = get('products');
