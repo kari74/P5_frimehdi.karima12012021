@@ -29,7 +29,7 @@ function ajax(url, methode ='GET', payload ={})
 
   function displayTotalInHeader()//affiche qty dans le header
   {
-    document.getElementById('totalQty').innerHTML = [] ,countProductsInCart();
+    document.getElementById('totalQty').innerHTML = []// countProductsInCart();
   }
   function countProductsInCart()//comptage du nbre de produit mis dans le panier
   {
