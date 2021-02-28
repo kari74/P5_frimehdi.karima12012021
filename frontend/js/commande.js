@@ -1,14 +1,14 @@
 
-function getOrderId(){
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get('id');
+function getOrderId(orderId){
+  let urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(orderId);
 }
-  {
+
  
-  //console.log(getOrderId());
+  console.log(getOrderId());
   //affichage de l'order Id 
-   let order = getOrderId();
-   document.getElementById('order').innerHTML = ('orderId');
+   let order = getOrderId('order');
+   document.getElementById('orderOK').innerHTML = order;
    
   
-}
+
