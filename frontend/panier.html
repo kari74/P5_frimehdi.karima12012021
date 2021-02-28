@@ -15,26 +15,36 @@
 <body>
     <header>
       
-        <a href="index.html">
+        <a class="retour" href="index.html"><i class="fa fa-arrow-left" aria-hidden="true"></i>Retour catalogue</a>
+        <div class="logo">
             <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">   
-        </a>
-        <div class="boutons">
-        <button class="panier" onclick='location.href="panier.html"' data-target="panier">Panier <span id="totalQty"></span><i class="fas fa-shopping-cart"></i></button>
         </div>
+        <div class="boutons">
+            <button class="panier" onclick='location.href="panier.html"' data-target="panier">Panier <span id="totalQty"></span><i class="fas fa-shopping-cart"></i></button>
+            <button class="button-clear" onclick='location.href="panier.html"' id="clear">Vider mon panier<i class="fa fa-trash" aria-hidden="true"></i></button>
+         </div> 
+        
     </header>
-    <main id="app">
-        <form id="formulaire">
-            <input type="text" name="nom" placeholder="nom" id="lastName" value="Doe"><br>
-            <input type="text" name="prenom" placeholder="prenom" id="fistName" value="John"><br>
-            <input type="text" name="address" placeholder="Adresse" id="address" value="6 rue du bonheur"><br>
-            <input type="text" name="city" placeholder="ville" id="city" value="La joie"><br>
-            <input type="email" name="email" placeholder="email" id="email" value="doe.john@example.com"><br>
-            <button type="button" id="submitButton">Valider</button>
-        </form>
-        <h1 id="cartEmpty">
-            Aucun produit dans votre panier, selectionner vos articles dans le catalogue
-        </h1>
-    </main>
+        <main id="app">
+            
+            <form id="formulaire">
+                <h3>veuillez remplir le formulaire pour passer commande
+                  <p>tous les champs sont obligatoire et doivent etre correctement remplis</p>
+                </h3>
+                <h2>Informations</h2>
+                <input type="text" name="nom" placeholder="nom" id="lastName" value="Doe"><br>
+                <input type="text" name="prenom" placeholder="prenom" id="fistName" value="John"><br>
+                <input type="text" name="address" placeholder="Adresse" id="address" value="6 rue du bonheur"><br>
+                <input type="text" name="city" placeholder="ville" id="city" value="La joie"><br>
+                <input type="email" name="email" placeholder="email" id="email" value="doe.john@example.com"><br>
+                <button type="button" id="submitButton">Valider</button>
+            </form>
+            
+        </main>
+        <p id="totalPrice"></p>
+            <h1 id="cartEmpty">
+                Aucun produit dans votre panier, selectionner vos articles dans le catalogue
+            </h1>
     <footer>
         <section class="resauxsociaux">
             <a href="https://www.facebook.com/" target="_blank">

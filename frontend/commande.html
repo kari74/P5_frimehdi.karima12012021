@@ -14,12 +14,12 @@
 </head>
 <body>
     <header>
-        <a href="panier.html">
-            <button class="retour" href="../frontend/panier.html">
-                <i class="fa fa-arrow-left" aria-hidden="true"></i>Retour panier
-            </button>
+        <a href="index.html">
             <img src="../images/logo.png" id="logo" alt="Logo de notre site de ventes">
         </a>
+        <div class="boutons">
+        <button class="panier" onclick='location.href="../frontend/panier.html"' data-target="panier">Panier <span id="totalQty"></span> <i class="fas fa-shopping-cart"></i></button>
+        </div>
         <h1>Bienvenue sur ORINOCO le site de vente en ligne</h1><hr>
     </header>
     <section>
@@ -29,7 +29,7 @@
         </div>
         </section>
         <main>
-            <div class="ConfirmationCommande">
+            <div id ="order">
                 <h2 class="confirmer"> Commande confirmée<i class="fas fa-check"></i></h2>
             </div>
         </main>

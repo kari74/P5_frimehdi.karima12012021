@@ -1,35 +1,23 @@
-//connexion API
-function ajax(url, methode ='GET', payload ={})
-{
-    return new Promise(function (resolve,reject){
-    var xhr = new XMLHttpRequest();
-  
-    xhr.onreadystatechange = function()
-    {
-      if(xhr.readyState === 4)
-       {
-        if (xhr.status === 200)
-         {
-          let response = xhr.responseText
-          resolve (JSON.parse(response));
-          
+//connexion API avec la fonction ajax,
+function ajax(url, verb ='GET', payload = {}){
+    return new Promise((resolve,reject) => { //promesse pour la marche a suivre (rejet ou succes)
+    let req = new XMLHttpRequest();
+    req.open(verb, url);
+    req.addEventListener("load",function(){
+        if (req.status >= 200){
+        resolve (JSON.parse(req.responseText));   
+        } else{
+          reject(req.statusText);
         }
-        else
-        {
-          reject(xhr);
-          //alerte serveur
-          alert("le serveur ne repond pas!")
-        };
-      };
-    };
-    xhr.open(methode, url, true);
-    xhr.send(payload);
+      }); 
+    req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    req.send(JSON.stringify(payload));
     });
 };
 
   function displayTotalInHeader()//affiche qty dans le header
   {
-    document.getElementById('totalQty').innerHTML = []// countProductsInCart();
+    document.getElementById('totalQty').innerHTML = countProductsInCart();
   }
   function countProductsInCart()//comptage du nbre de produit mis dans le panier
   {
@@ -40,7 +28,7 @@ function ajax(url, methode ='GET', payload ={})
 
     let total = 0;//valeur par defaut si panier vide
 
-    get('Products').forEach((product) =>
+    get('products').forEach((product) =>
     {
       total += product.qty
     })
@@ -65,21 +53,20 @@ function ajax(url, methode ='GET', payload ={})
   
 
     if(type == "single") {
+
+       // Boucle options couleurs
+      let articleOptions = '';    
+      for (let i = 0; i < teddy.colors.length; i++) {
+        console.log(teddy.colors)
+        articleOptions += `<option>${teddy.colors[i]}</option>`
+      }
     return `
       <article id ="articleliste">
           <h3>${teddy.name}</h3>
           <img src="${teddy.imageUrl}"/>
           <p>${teddy.description}</p>
           <div class="choix">  
-            <select class="select">
-                <option selected="">Choix option obligatoire. Merci</option>
-                undefined
-                <option value="Tan">Tan</option>
-                <option value="Chocolate">Chocolate</option>
-                <option value="Black">Black</option>
-                <option value="White">White</option>
-              </select>
-            
+            <select id="choixTeddy" class="articleliste">${articleOptions}</select>
               <a href="index.html?id=${teddy._id}"> Retour a la liste </a>
               <a href="panier.html?id=${teddy._id}"> voir le panier</a>
           </div>
@@ -91,22 +78,24 @@ function ajax(url, methode ='GET', payload ={})
     if (type =="panier")
     {
       return `
-        <article id ="tr">
+      
+        <article id ="articlepanier">
             <h3>${teddy.name}</h3>
-            <img src="${teddy.imageUrl}" style="width: 20%"/>
-            <p>${teddy.description}</p>
+            <img src="${teddy.imageUrl}" />
             <div>${teddy.price/100} €</div> 
-            <div>${teddy.qty}Quantité:</div>
+            <div class ="quantity">Quantité:${teddy.qty}</div>
+            <div class ="bouton">
             <span id ="addButton-${teddy._id}" style ="padding:10px;font-size:15px; color:white; background-color: red; border:1px solid white; margin-right:15px"> + </span>
             <span id ="removeButton-${teddy._id}"style ="padding:10px;font-size:15px; color:white; background-color: green; border:1px solid white;"> - </span>
-            <a href="produit.html?id=${teddy._id}"> Retour a la liste </a>
+            </div>
             </article> 
                 `;
     }
 
+
 }
 
-function hasProductsInCart()
+function hasProductsInCart()//presence de produit dans le panier 
 {
   return !! localStorage.getItem('products')
 }
@@ -122,12 +111,12 @@ function store(item, value)//stockage des elements dans le local storage
   localStorage.setItem(item, JSON.stringify(value));
 }
 
-function show(id)
+function show(id)//presence de produit dans le panier 
 {
   document.getElementById(id).style.display ='block';
 }
 
-function hide(id)
+function hide(id)// absence de produit dans le panier  
 {
   document.getElementById(id).style.display ='none';
 }

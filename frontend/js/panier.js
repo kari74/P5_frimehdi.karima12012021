@@ -1,5 +1,6 @@
 
 
+displayTotalInHeader();//afficher le total article dans le header
 if(hasProductsInCart())
 {
   hide('cartEmpty');
@@ -49,35 +50,61 @@ function listenForDeletion(id){
   })
 }
 
+
+//function displayTotal(total){
+ // document.getElementById('totalPrice').innerHTML ='prix total =' + total( total);
+//}
+function totalPrice(){
+ document.getElementById(`totalPrice-${totalAmount}` + ` €`);
+ let totalPrice =  ('totalPrice')
+ let totalAmount = 0;
+ let i = 0; i<panier.length; i++;
+ {
+    totalAmount += panier[i].price * panier[i].quantity;
+ }
+ totalPrice.innerText = `totalPrice` + ` €`
+}
+
+function listenForCartEmpty(){
+  document.getElementById('clear').addEventListener('click',() =>{
+    Storage.clear();
+    location.reload();
+  })
+}
+
 function listenForCartSubmission()
 {
   let btn = document.getElementById('submitButton');
-  btn.addEventListener('click', function()
+  btn.addEventListener('click', function(e)
   {
-    //e.preventDefault();
-    let fistName = document.getElementById('fistName').value;
+    e.preventDefault();
+  
+    let firstName = document.getElementById('fistName').value;
     let lastName = document.getElementById('lastName').value;
     let address = document.getElementById('address').value;
     let city = document.getElementById('city').value;
     let email = document.getElementById('email').value;
 
-
-    console.log(fistName, lastName, address, city, email);
+    console.log(firstName, lastName, address, city, email);
+    let productIds =[];
+    get('products').forEach((product) =>{ productIds.push(product.id)})
 
     let payload = {
       contact: {
-        fistName: fistName,
+        firstName: firstName,
         lastName: lastName,
         address: address,
         city: city,
         email: email
     },
-    products: get('products')
+    products: productIds
   }
 
-  ajax('http://localhost:3000/api/teddies/order', 'POST', JSON.stringify(payload)).then(function(res) {
-      console.log(res)
-
+  ajax('http://localhost:3000/api/teddies/order', 'POST', payload).then((response) => {
+     // console.log(res)
+     //affichage de l'order Id si form=ok
+   //
+    window.location.href = `commande.html?commande =${response.orderId}`;
     })
 })
 }

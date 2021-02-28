@@ -1,6 +1,6 @@
-displayTotalInHeader();
-//appel ajax avec l'URL + id pour le choix produit fait par l'utilisateur 
+displayTotalInHeader();//affichage du nombre de produit present dans le panier
 
+//appel ajax avec l'URL + id pour le choix produit fait par l'utilisateur 
 ajax('http://localhost:3000/api/teddies/' + getProductId())//appel produit 
   .then(product =>
   {
@@ -8,7 +8,7 @@ ajax('http://localhost:3000/api/teddies/' + getProductId())//appel produit
     listenForCartAddition();  
   })
 
-function displayProduct(teddy){
+function displayProduct(teddy){//recuperation du produit 
   document.getElementById('app').innerHTML += render(teddy, "single")
 }
 
@@ -26,14 +26,11 @@ function listenForCartAddition(){
        //creation d'un tableau vide pour pouvoir ajouter les produits choisi par l'utilisateur dans le tableau 'products '
       // pour envoi stockage du produit dans le storage ( ligne 41)
 
-      if (hasProductsInCart()) //verification de l'existance du produit dans le panier
-      {
+      if (hasProductsInCart()) {//verification de l'existance du produit dans le panier
           products = get('products');
       } 
 
-      if (productExists(get('products'), getProductId()))
-      {
-
+      if (productExists(products, getProductId())){
           let index = products.findIndex(product => product.id === getProductId());
           products[index].qty ++;
           store('products',  products);
