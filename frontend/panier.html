@@ -25,26 +25,28 @@
          </div> 
         
     </header>
-        <main id="app">
-            
-            <form id="formulaire">
-                <h3>veuillez remplir le formulaire pour passer commande
-                  <p>tous les champs sont obligatoire et doivent etre correctement remplis</p>
-                </h3>
-                <h2>Informations</h2>
-                <input type="text" name="nom" placeholder="nom" id="lastName" value="Doe"><br>
-                <input type="text" name="prenom" placeholder="prenom" id="fistName" value="John"><br>
-                <input type="text" name="address" placeholder="Adresse" id="address" value="6 rue du bonheur"><br>
-                <input type="text" name="city" placeholder="ville" id="city" value="La joie"><br>
-                <input type="email" name="email" placeholder="email" id="email" value="doe.john@example.com"><br>
-                <button type="button" id="submitButton">Valider</button>
-            </form>
-            
-        </main>
-        <p id="totalPrice"></p>
-            <h1 id="cartEmpty">
-                Aucun produit dans votre panier, selectionner vos articles dans le catalogue
-            </h1>
+    <main>
+        <section id="app"></section>
+        <form id="formulaire">
+            <h3>veuillez remplir le formulaire pour passer commande
+                <p>tous les champs sont obligatoire et doivent etre correctement remplis</p>
+            </h3>
+            <h2>Informations</h2>
+            <input type="text" name="nom" placeholder="nom" id="lastName" value="Doe"><br>
+            <input type="text" name="prenom" placeholder="prenom" id="firstName" value="John"><br>
+            <input type="text" name="address" placeholder="Adresse" id="address" value="6 rue du bonheur"><br>
+            <input type="text" name="city" placeholder="ville" id="city" value="La joie"><br>
+            <input type="email" name="email" placeholder="email" id="email" value="doe.john@example.com"><br>
+            <button type="button" id="submitButton">Valider</button>
+        </form>  
+    </main>
+    <div id="totalPrice">
+        <p>Total de votre panier est de : <span id="total"></span></p>
+        <!--<h2 id ="total"> </h2>-->
+    </div>
+    <h1 id="cartEmpty">
+        Aucun produit dans votre panier, selectionner vos articles dans le catalogue
+    </h1>
     <footer>
         <section class="resauxsociaux">
             <a href="https://www.facebook.com/" target="_blank">
