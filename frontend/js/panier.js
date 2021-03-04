@@ -161,7 +161,7 @@ function listenForCartSubmission()
 
 function displayTeddy(teddy)
 {
-  document.getElementById('app').innerHTML  += render (teddy,"panier")
+  document.getElementById('apPanier').innerHTML  += render (teddy,"panier")
 
 }
 

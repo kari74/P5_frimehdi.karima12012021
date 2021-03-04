@@ -19,6 +19,11 @@ header{
 main{
     display: flex;
 }
+
+#apPanier{
+    width: 50%;
+    display: flex;
+}
 #app{
     text-align: center;
     width: 100%;
@@ -56,6 +61,9 @@ h1{
 
 h3{
     font-size: 15px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
 }
 
 a{
@@ -121,8 +129,14 @@ p,#titreintro {
     background-color: rgb(233, 186, 194);
 }
 
+
+#totalPrice{
+    display: flex;
+    justify-content: center;
+}
 #totalPrice p {
     font-size: 17px;
+    width: 50%;
 }
 .quantity{
     margin: 10px;
@@ -247,17 +261,18 @@ li{
     border-style: solid;
     border-radius: 3px;
     border-color: rgb(180, 158, 202);
-    margin-top: 190px;
     margin-right: 15px;
     margin-bottom: 10px;
     padding: 10px;
     text-align: center;
     width: 14%;
+    height: 50%;
     background-color: rgb(241, 215, 220, 0.55);
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    align-self: center;
 }
 #articlepanier img{
     width: 85%;
@@ -353,7 +368,10 @@ p, label{
 }
 
 /* Panier */
-
+h1{
+    font-size: 33px;
+    color: purple;
+}
 
 #produit{
     margin: auto;
@@ -432,6 +450,21 @@ button{
     margin: 10px;
 }
 
+button{
+    color: black;
+    font-family: 'Roboto', cursive;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    border-color: rgb(255, 167, 181);
+    padding: 5px;
+    margin: 10px;
+}
+}
+
 .fa-trash{
     margin: 7px;
 }
@@ -439,6 +472,7 @@ button{
     overflow: visible;
     width: 70%;
     height: 50px;
+    border: 1px solid purple;
 }
 /* Confirmation de commande */
 
@@ -462,23 +496,84 @@ button{
     width: 100%;
 }
 
+@media(max-width:1024px){
 
+    main{
+         flex-direction: column;
+         display: flex;
+    }
+    section{
+    justify-content: center;
+    display: flex;
+    }
+
+    #formulaire h3{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+
+    #totalPrice p {
+        font-size: 17px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
 @media(max-width: 760px){
     
+   
     .retour{
         width: 35%;
     }
     h1{
+        font-size: 20px;
         display: flex;
         justify-content: center;
         width: 100%;
         text-align: center;
     }
 
+    img{
+        width: 60%;
+    }
+
+    h2{
+        font-size: 18px;
+    }
+
     .text-center{
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+
+    #titreintro{
+        font-size: 15px;
+    }
+
+    #apPanier{
+        margin: 0px;
+        padding: 15px; 
+        width: 90%; 
+        display: flex;
+        flex-direction: column;  
+    }
+    .button{
+        width: 30%;
+    }
+
+    .panier{
+        width: 31%;
+    }
+
+    .button-clear{
+        width: 30%;
+    }
+
+    button{
+        width: 30%;
     }
 
     main{
@@ -499,11 +594,28 @@ button{
         height: 270px;
     }
 
+    #articlepanier{
+        width: 90%;
+        margin: 5px;
+    }
+
+    #formulaire{
+        width: 100%;
+    }
     footer{
-        height: 450px;
+        height: 500px;
     }
 
     footer a{
         margin: 5px;
     }
+
+    ul{
+        flex-direction: column;
+    }
+
+    .resauxsociaux{
+        flex-direction: column;
+    }
 }
+

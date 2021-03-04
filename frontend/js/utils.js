@@ -84,7 +84,7 @@ function ajax(url, verb ='GET', payload = {}){
             <img src="${teddy.imageUrl}" />
             <div style="color:black; margin: 10px;">${teddy.price/100} €</div> 
             <div class ="quantity">Quantité:${teddy.qty}</div>
-            <div class ="bouton">
+            <div class ="bouton"style="margin :5px;">
             <span id ="addButton-${teddy._id}" style ="padding:10px;font-size:15px; color:white; background-color: red; border:1px solid white; margin-right:15px"> + </span>
             <span id ="removeButton-${teddy._id}"style ="padding:10px;font-size:15px; color:white; background-color: green; border:1px solid white;"> - </span>
             </div>
