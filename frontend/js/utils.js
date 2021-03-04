@@ -123,7 +123,7 @@ function hide(id)// absence de produit dans le panier
 }
 
 
-function getUrlValue(id)
+function getUrlValue(id) //recuperation de la clé(id)url
 {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get(id)

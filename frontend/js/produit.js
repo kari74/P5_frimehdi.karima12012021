@@ -24,7 +24,7 @@ function listenForCartAddition(){
      
       let products = []
        //creation d'un tableau vide pour pouvoir ajouter les produits choisi par l'utilisateur dans le tableau 'products '
-      // pour envoi stockage du produit dans le storage ( ligne 41)
+     
 
       if (hasProductsInCart()) {//verification de l'existance du produit dans le panier
           products = get('products');

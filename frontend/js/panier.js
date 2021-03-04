@@ -73,19 +73,19 @@ function validateFom()
    listenForCartSubmission()
 
   }
-function disableSubmitButton()
+function disableSubmitButton()//button inactif si formulaire invalide
 {
   document.getElementById('submitButton').setAttribute('disabled','disabled');
   document.getElementById('submitButton').style.opacity = '0.5';
 }
 
-function enableSubmitButton()
+function enableSubmitButton()//button actif si formulaire valide
 {
   document.getElementById('submitButton').removeAttribute('disabled');
   document.getElementById('submitButton').style.opacity = '1';
 }
 
-function listenForAddition(id) {
+function listenForAddition(id) { //ajout produit
   document.getElementById(`addButton-${id}`).addEventListener('click' , function()
   {
       let products = get('products');
@@ -97,7 +97,7 @@ function listenForAddition(id) {
   })
 }
 
-function listenForDeletion(id){
+function listenForDeletion(id){  // suppression produit
   document.getElementById(`removeButton-${id}`).addEventListener('click' , function(){
     let products = get('products');
 
@@ -114,14 +114,14 @@ function listenForDeletion(id){
   })
 }
 
-function listenForCartEmpty(){
+function listenForCartEmpty(){  // vider le panier
   document.getElementById('clear').addEventListener('click',() =>{
   localStorage.clear();
   location.reload();
   })
 }
 
-function listenForCartSubmission()
+function listenForCartSubmission()  //soumission du formulaire
 {
   let btn = document.getElementById('submitButton');
   btn.addEventListener('click', function(e)
@@ -150,16 +150,14 @@ function listenForCartSubmission()
   }
 
   ajax('http://localhost:3000/api/teddies/order', 'POST', payload).then((response) => {
-     // console.log(res)
-     //affichage de l'order Id si form=ok
-   //
+     
     window.location.href = `commande.html?commande=${response.orderId}`;
     })
 })
 }
 
 
-function displayTeddy(teddy)
+function displayTeddy(teddy) // affichage produits panier
 {
   document.getElementById('apPanier').innerHTML  += render (teddy,"panier")
 
