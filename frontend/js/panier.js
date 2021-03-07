@@ -32,51 +32,16 @@ if(hasProductsInCart())
     document.getElementById(`total`).innerHTML= total/100 + '€';
   })
 }
-function validateFom()
-{
-  let isFormValid = false;
-  disableSubmitButton();
 
-  let lastName = document.getElementById('lastName').value;
-  let firstName = document.getElementById('firstName').value;
-  let address = document.getElementById('address').value;
-  let city = document.getElementById('city').value;
-  let email = document.getElementById('email').value;
-
-  if(lastName.length < 3)
-  {
-    return false;
-  }
-
-  if(firstName.length < 3)
-  {
-    return false;
-  }
-
-  if(address.length < 3)
-  {
-    return false;
-  }
-
-  if(city.length < 3)
-  {
-    return false;
-  }
-
-
-  if (email.length < 5|| email.length > 255)
-     {
-       return (false)
-     }
-     
-   enableSubmitButton();
-   listenForCartSubmission()
-
-  }
 function disableSubmitButton()//button inactif si formulaire invalide
 {
   document.getElementById('submitButton').setAttribute('disabled','disabled');
   document.getElementById('submitButton').style.opacity = '0.5';
+}
+function displayTeddy(teddy) // affichage produits panier
+{
+  document.getElementById('apPanier').innerHTML  += render (teddy,"panier")
+
 }
 
 function enableSubmitButton()//button actif si formulaire valide
@@ -156,10 +121,48 @@ function listenForCartSubmission()  //soumission du formulaire
 })
 }
 
-
-function displayTeddy(teddy) // affichage produits panier
+function validateFom()
 {
-  document.getElementById('apPanier').innerHTML  += render (teddy,"panier")
+  let isFormValid = false;
+  disableSubmitButton();
 
-}
+  let lastName = document.getElementById('lastName').value;
+  let firstName = document.getElementById('firstName').value;
+  let address = document.getElementById('address').value;
+  let city = document.getElementById('city').value;
+  let email = document.getElementById('email').value;
+
+  if(lastName.length < 3)
+  {
+    alert('verifier le champs');
+    return false;
+    
+  }
+
+  if(firstName.length < 3)
+  {
+    return false;
+  }
+
+  if(address.length < 3)
+  {
+    return false;
+  }
+
+  if(city.length < 3)
+  {
+    return false;
+  }
+
+
+  if (email.length < 5|| email.length > 255)
+     {
+       return (false)
+     }
+     
+   enableSubmitButton();
+   listenForCartSubmission()
+
+  }
+
 

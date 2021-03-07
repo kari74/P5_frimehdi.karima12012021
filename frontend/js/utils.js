@@ -14,12 +14,7 @@ function ajax(url, verb ='GET', payload = {}){
     req.send(JSON.stringify(payload));
     });
 };
-
-  function displayTotalInHeader()//affiche qty dans le header
-  {
-    document.getElementById('totalQty').innerHTML = countProductsInCart();
-  }
-  function countProductsInCart()//comptage du nbre de produit mis dans le panier
+function countProductsInCart()//comptage du nbre de produit mis dans le panier
   {
     if(!hasProductsInCart())
     {
@@ -34,11 +29,37 @@ function ajax(url, verb ='GET', payload = {}){
     })
 
     return total;
-  }
+}
 
-  // introduction html grace a `` affichage dans les differentes pages
+function displayTotalInHeader()//affiche qty dans le header
+  {
+    document.getElementById('totalQty').innerHTML = countProductsInCart();
+}
 
-  function render(teddy, type)
+function hasProductsInCart()//presence de produit dans le panier 
+{
+  return !! localStorage.getItem('products')
+}
+
+function hide(id)// absence de produit dans le panier  
+{
+  document.getElementById(id).style.display ='none';
+}
+
+function get(item)//recuperation des elements depuis le local storage
+{
+  return JSON.parse(localStorage.getItem(item));
+}
+
+function getUrlValue(id) //recuperation de la clé(id)url
+{
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(id)
+}
+
+ // introduction html grace a `` affichage dans les differentes pages
+
+function render(teddy, type)
   {
     if(type == 'index'){
       return `
@@ -95,18 +116,6 @@ function ajax(url, verb ='GET', payload = {}){
 
 
 }
-
-function hasProductsInCart()//presence de produit dans le panier 
-{
-  return !! localStorage.getItem('products')
-}
-
-function get(item)//recuperation des elements depuis le local storage
-{
-  return JSON.parse(localStorage.getItem(item));
-}
-
-
 function store(item, value)//stockage des elements dans le local storage
 {
   localStorage.setItem(item, JSON.stringify(value));
@@ -117,14 +126,5 @@ function show(id)//presence de produit dans le panier
   document.getElementById(id).style.display ='block';
 }
 
-function hide(id)// absence de produit dans le panier  
-{
-  document.getElementById(id).style.display ='none';
-}
 
 
-function getUrlValue(id) //recuperation de la clé(id)url
-{
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(id)
-}
