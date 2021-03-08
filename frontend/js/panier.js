@@ -23,11 +23,11 @@ if(hasProductsInCart())
 
     listenForCartEmpty();
 
-    document.getElementById('lastName').addEventListener('change', validateFom);
-    document.getElementById('firstName').addEventListener('change', validateFom);
-    document.getElementById('address').addEventListener('change', validateFom);
-    document.getElementById('city').addEventListener('change', validateFom);
-    document.getElementById('email').addEventListener('change', validateFom);
+    document.getElementById('lastName').addEventListener('change', validateForm);
+    document.getElementById('firstName').addEventListener('change', validateForm);
+    document.getElementById('address').addEventListener('change', validateForm);
+    document.getElementById('city').addEventListener('change', validateForm);
+    document.getElementById('email').addEventListener('change', validateForm);
    
     document.getElementById(`total`).innerHTML= total/100 + '€';
   })
@@ -99,7 +99,7 @@ function listenForCartSubmission()  //soumission du formulaire
     let city = document.getElementById('city').value;
     let email = document.getElementById('email').value;
 
-   // console.log(firstName, lastName, address, city, email);
+    console.log(firstName, lastName, address, city, email);
     let productIds =[];
     get('products').forEach((product) =>{ productIds.push(product.id)})
 
@@ -121,53 +121,8 @@ function listenForCartSubmission()  //soumission du formulaire
 })
 }
 
-function validateFom()
-{
 
-  disableSubmitButton();
-
-  let lastName = document.getElementById('lastName').value;
-  let firstName = document.getElementById('firstName').value;
-  let address = document.getElementById('address').value;
-  let city = document.getElementById('city').value;
-  let email = document.getElementById('email').value;
-
-  if(lastName.length < 1)
-  {
-    alert('verifier le champs');
-    return false;
-    
-  }
-
-  if(firstName.length < 1)
-  {
-    return false;
-  }
-
-  if(address.length < 3)
-  {
-    return false;
-  }
-
-  if(city.length < 3)
-  {
-    return false;
-  }
-
-
-  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
-     {
-       return true
-     }
-    
-   enableSubmitButton();
-   listenForCartSubmission()
-
-  }
-
-
-/*
-function validateFom()
+function validateForm()
 {
  disableSubmitButton();
 
@@ -175,11 +130,11 @@ function validateFom()
     && isStringValid(getImputValue('firstName'))
     && isStringValid(getImputValue('address'), 10, 50)
     && isStringValid(getImputValue('city'))
-    && isEmailValid(getImputValue('email'))
+    && ValidateEmail(getImputValue('email'))
   ))
   
-   enableSubmitButton();
-   listenForCartSubmission()
+    enableSubmitButton();
+    listenForCartSubmission()
 
   
 }
@@ -201,17 +156,72 @@ function validateFom()
 
 
 
-function isEmailValid(email)
-{
-    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
-     {
-       return true
-     }
-       return false
-}
+  function ValidateEmail(email) 
+  {
+   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+    {
+      return true ;
+    }
+      alert("You have entered an invalid email address!")
+      return false;
+  }
 
 
 function getImputValue(id)
 {
   return document.getElementById(id).value;
-}*/
+}
+
+
+
+
+
+
+
+/*
+function validateFom()
+{
+
+  disableSubmitButton();
+
+  let lastName = document.getElementById('lastName').value;
+  let firstName = document.getElementById('firstName').value;
+  let address = document.getElementById('address').value;
+  let city = document.getElementById('city').value;
+  let email = document.getElementById('email').value;
+
+  if(lastName.length < 1)
+  {
+    alert('verifier le champs');
+    return false;
+    
+  }
+
+  if(firstName.length < 3)
+  {
+    return false;
+  }
+
+  if(address.length < 3)
+  {
+    return false;
+  }
+
+  if(city.length < 3)
+  {
+    return false;
+  }
+
+
+  if (email.length < 5|| email.length > 255)
+  {
+    return (false)
+  }
+  
+enableSubmitButton();
+listenForCartSubmission()
+
+}
+    
+  
+*/
