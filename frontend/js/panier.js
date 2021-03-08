@@ -99,7 +99,7 @@ function listenForCartSubmission()  //soumission du formulaire
     let city = document.getElementById('city').value;
     let email = document.getElementById('email').value;
 
-    console.log(firstName, lastName, address, city, email);
+   // console.log(firstName, lastName, address, city, email);
     let productIds =[];
     get('products').forEach((product) =>{ productIds.push(product.id)})
 
@@ -123,7 +123,7 @@ function listenForCartSubmission()  //soumission du formulaire
 
 function validateFom()
 {
-  let isFormValid = false;
+
   disableSubmitButton();
 
   let lastName = document.getElementById('lastName').value;
@@ -132,14 +132,14 @@ function validateFom()
   let city = document.getElementById('city').value;
   let email = document.getElementById('email').value;
 
-  if(lastName.length < 3)
+  if(lastName.length < 1)
   {
     alert('verifier le champs');
     return false;
     
   }
 
-  if(firstName.length < 3)
+  if(firstName.length < 1)
   {
     return false;
   }
@@ -155,14 +155,63 @@ function validateFom()
   }
 
 
-  if (email.length < 5|| email.length > 255)
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
      {
-       return (false)
+       return true
      }
-     
+    
    enableSubmitButton();
    listenForCartSubmission()
 
   }
 
 
+/*
+function validateFom()
+{
+ disableSubmitButton();
+
+  if (!(isStringValid(getImputValue('lastName'))
+    && isStringValid(getImputValue('firstName'))
+    && isStringValid(getImputValue('address'), 10, 50)
+    && isStringValid(getImputValue('city'))
+    && isEmailValid(getImputValue('email'))
+  ))
+  
+   enableSubmitButton();
+   listenForCartSubmission()
+
+  
+}
+  function isStringValid( str, min = 1, max = 255)
+  {
+    if(str.length < min)
+    {
+      return false;
+    }
+
+    if(str.length > max)
+    {
+     
+      return false;
+    }
+
+     return true; 
+  }
+
+
+
+function isEmailValid(email)
+{
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+     {
+       return true
+     }
+       return false
+}
+
+
+function getImputValue(id)
+{
+  return document.getElementById(id).value;
+}*/
