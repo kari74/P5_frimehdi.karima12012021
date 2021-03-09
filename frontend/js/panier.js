@@ -22,13 +22,8 @@ if(hasProductsInCart())
     })
 
     listenForCartEmpty();
+    listenForFormChange();
 
-    document.getElementById('lastName').addEventListener('change', validateForm);
-    document.getElementById('firstName').addEventListener('change', validateForm);
-    document.getElementById('address').addEventListener('change', validateForm);
-    document.getElementById('city').addEventListener('change', validateForm);
-    document.getElementById('email').addEventListener('change', validateForm);
-   
     document.getElementById(`total`).innerHTML= total/100 + '€';
   })
 }
@@ -126,6 +121,7 @@ function listenForCartSubmission()  //soumission du formulaire
     })
 })
 }
+
 function listenForDeletion(id){  // suppression produit
   document.getElementById(`removeButton-${id}`).addEventListener('click' , function(){
     let products = get('products');
@@ -143,6 +139,14 @@ function listenForDeletion(id){  // suppression produit
   })
 }
 
+function listenForFormChange()
+{
+  let inputIds = ['lastName', 'firstName', 'address', 'city', 'email'];
+  inputIds.forEach((inputId) => 
+  {
+    document.getElementById(inputId).addEventListener('change', validateForm);
+  })
+}
  function ValidateEmail(email) 
   {
    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
