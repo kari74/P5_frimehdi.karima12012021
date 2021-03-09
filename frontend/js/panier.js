@@ -50,6 +50,27 @@ function enableSubmitButton()//button actif si formulaire valide
   document.getElementById('submitButton').style.opacity = '1';
 }
 
+function getImputValue(id)
+{
+  return document.getElementById(id).value;
+}
+
+  function isStringValid( str, min = 1, max = 255)
+  {
+    if(str.length < min)
+    {
+      return false;
+    }
+
+    if(str.length > max)
+    {
+     
+      return false;
+    }
+
+     return true; 
+  }
+
 function listenForAddition(id) { //ajout produit
   document.getElementById(`addButton-${id}`).addEventListener('click' , function()
   {
@@ -62,22 +83,6 @@ function listenForAddition(id) { //ajout produit
   })
 }
 
-function listenForDeletion(id){  // suppression produit
-  document.getElementById(`removeButton-${id}`).addEventListener('click' , function(){
-    let products = get('products');
-
-    let index = products.findIndex(product=> product.id=== id);
-   
-    if (products[index].qty == 1){
-      products.splice(index, 1)
-    } else {
-    products[index].qty --;
-    }
-    
-    store('products',  products);
-    window.location.reload();
-  })
-}
 
 function listenForCartEmpty(){  // vider le panier
   document.getElementById('clear').addEventListener('click',() =>{
@@ -92,6 +97,7 @@ function listenForCartSubmission()  //soumission du formulaire
   btn.addEventListener('click', function(e)
   {
     e.preventDefault();
+   
   
     let firstName = document.getElementById('firstName').value;
     let lastName = document.getElementById('lastName').value;
@@ -120,7 +126,32 @@ function listenForCartSubmission()  //soumission du formulaire
     })
 })
 }
+function listenForDeletion(id){  // suppression produit
+  document.getElementById(`removeButton-${id}`).addEventListener('click' , function(){
+    let products = get('products');
 
+    let index = products.findIndex(product=> product.id=== id);
+   
+    if (products[index].qty == 1){
+      products.splice(index, 1)
+    } else {
+    products[index].qty --;
+    }
+    
+    store('products',  products);
+    window.location.reload();
+  })
+}
+
+ function ValidateEmail(email) 
+  {
+   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
+    {
+      return true ;
+    }
+      alert("You have entered an invalid email address!")
+      return false;
+}
 
 function validateForm()
 {
@@ -132,45 +163,18 @@ function validateForm()
     && isStringValid(getImputValue('city'))
     && ValidateEmail(getImputValue('email'))
   ))
-  
+ 
+  {
     enableSubmitButton();
     listenForCartSubmission()
-
+  }
   
 }
-  function isStringValid( str, min = 1, max = 255)
-  {
-    if(str.length < min)
-    {
-      return false;
-    }
 
-    if(str.length > max)
-    {
-     
-      return false;
-    }
-
-     return true; 
-  }
+ 
 
 
 
-  function ValidateEmail(email) 
-  {
-   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
-    {
-      return true ;
-    }
-      alert("You have entered an invalid email address!")
-      return false;
-  }
-
-
-function getImputValue(id)
-{
-  return document.getElementById(id).value;
-}
 
 
 
