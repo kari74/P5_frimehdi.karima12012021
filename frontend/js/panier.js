@@ -32,6 +32,7 @@ function disableSubmitButton()//button inactif si formulaire invalide
 {
   document.getElementById('submitButton').setAttribute('disabled','disabled');
   document.getElementById('submitButton').style.opacity = '0.5';
+  document.getElementById('submitButton').style.backgroundColor = 'red';
 }
 function displayTeddy(teddy) // affichage produits panier
 {
@@ -43,6 +44,7 @@ function enableSubmitButton()//button actif si formulaire valide
 {
   document.getElementById('submitButton').removeAttribute('disabled');
   document.getElementById('submitButton').style.opacity = '1';
+  document.getElementById('submitButton').style.backgroundColor = 'green';
 }
 
 function getImputValue(id)
@@ -50,20 +52,20 @@ function getImputValue(id)
   return document.getElementById(id).value;
 }
 
-  function isStringValid( str, min = 1, max = 255)
+function isStringValid( str, min = 1, max = 255)
+{
+  if(str.length < min)
   {
-    if(str.length < min)
-    {
-      return false;
-    }
+    return false;
+  }
 
-    if(str.length > max)
-    {
+  if(str.length > max)
+  {
      
-      return false;
-    }
+    return false;
+  }
 
-     return true; 
+    return true; 
   }
 
 function listenForAddition(id) { //ajout produit
@@ -147,26 +149,27 @@ function listenForFormChange()
     document.getElementById(inputId).addEventListener('change', validateForm);
   })
 }
- function ValidateEmail(email) 
+function  isEmailValid(email) 
+{
+  if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
   {
-   if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email))
-    {
-      return true ;
-    }
-      alert("You have entered an invalid email address!")
-      return false;
+    return true ;
+  }
+  alert("You have entered an invalid email address!")
+    return false;
 }
 
 function validateForm()
 {
- disableSubmitButton();
+  console.log('on valide les données...')
+  disableSubmitButton();
 
-  if (!(isStringValid(getImputValue('lastName'))
+  if (isStringValid(getImputValue('lastName'))
     && isStringValid(getImputValue('firstName'))
     && isStringValid(getImputValue('address'), 10, 50)
     && isStringValid(getImputValue('city'))
-    && ValidateEmail(getImputValue('email'))
-  ))
+    && isEmailValid(getImputValue('email'))
+  )
  
   {
     enableSubmitButton();
