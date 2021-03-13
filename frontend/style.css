@@ -21,7 +21,7 @@ main{
 }
 
 #apPanier{
-    width: 50%;
+    width: 60%;
     display: flex;
 }
 #app{
@@ -265,8 +265,8 @@ li{
     margin-bottom: 10px;
     padding: 10px;
     text-align: center;
-    width: 14%;
-    height: 50%;
+    width: fit-content;
+    height: fit-content;
     background-color: rgb(241, 215, 220, 0.55);
     display: flex;
     justify-content: center;
@@ -275,7 +275,7 @@ li{
     align-self: center;
 }
 #articlepanier img{
-    width: 85%;
+    width: 80%;
 }
 .select{
     width: 100%;
@@ -379,7 +379,7 @@ h1{
 }
 
 article h3, p{
-    font-size: 12px;
+    font-size: 11px;
     font-weight: bold;
     color: rgb(5, 5, 5);
     margin: 10px;
@@ -406,7 +406,7 @@ content: " €";
     justify-content: center;
     align-items: center;
     align-self: center;
-    width: 50%;
+    width: 35%;
     height: 100%;
 }
 

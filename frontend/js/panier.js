@@ -6,7 +6,7 @@ if(hasProductsInCart())
 {
   hide('cartEmpty');
 
-  ajax('http://localhost:3000/api/teddies/').then(teddies =>
+ajax('http://localhost:3000/api/teddies/').then(teddies =>
   {
     let total = 0;
     get('products').forEach(item =>{
@@ -14,17 +14,17 @@ if(hasProductsInCart())
         teddy.qty = item.qty//ajoute de la propriété (qty) a chaque objet 
         total += teddy.price * item.qty
         displayTeddy(teddy)
-     })
+   })
 
-    get('products').forEach(item =>{
+get('products').forEach(item =>{
        listenForAddition(item.id)
        listenForDeletion(item.id)
-    })
+  })
 
-    listenForCartEmpty();
-    listenForFormChange();
+  listenForCartEmpty();
+  listenForFormChange();
 
-    document.getElementById(`total`).innerHTML= total/100 + '€';
+  document.getElementById(`total`).innerHTML= total/100 + '€';
   })
 }
 
@@ -34,6 +34,7 @@ function disableSubmitButton()//button inactif si formulaire invalide
   document.getElementById('submitButton').style.opacity = '0.5';
   document.getElementById('submitButton').style.backgroundColor = 'red';
 }
+
 function displayTeddy(teddy) // affichage produits panier
 {
   document.getElementById('apPanier').innerHTML  += render (teddy,"panier")

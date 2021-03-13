@@ -78,7 +78,7 @@ function render(teddy, type)
        // Boucle options couleurs
       let articleOptions = '';    
       for (let i = 0; i < teddy.colors.length; i++) {
-        console.log(teddy.colors)
+        //console.log(teddy.colors)
         articleOptions += `<option>${teddy.colors[i]}</option>`
       }
     return `
