@@ -2,9 +2,14 @@ displayTotalInHeader();//afficher le total article dans le header
 
 enableSubmitButton();
 let products = [];
+show('cartEmpty');
+hide('formulaire'); 
+hide('totalPrice')
 if(hasProductsInCart())
 {
   hide('cartEmpty');
+  show('formulaire');
+  show('totalPrice');
 
 ajax('http://localhost:3000/api/teddies/').then(teddies =>
   {
