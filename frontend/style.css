@@ -621,6 +621,14 @@ button{
     #formulaire{
         width: 100%;
     }
+
+    input{
+    display: flex;
+    width: 80%;
+    margin: 20px;
+    }
+
+    
     footer{
         height: 500px;
     }
