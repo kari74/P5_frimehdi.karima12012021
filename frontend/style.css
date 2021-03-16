@@ -531,6 +531,10 @@ button{
         text-align: center;
     }
 
+    input{
+        width: 100%;
+        display: flex;
+    }
     #totalPrice p {
         font-size: 17px;
         width: 100%;
@@ -628,7 +632,7 @@ button{
     margin: 20px;
     }
 
-    
+
     footer{
         height: 500px;
     }
